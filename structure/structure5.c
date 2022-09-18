@@ -28,7 +28,7 @@ int main()
     printf("pi's address is:%s\n", p1.address);
     printf("pi's due bill is:%f\n", p1.amount);
 
-    printf("p2's name is:%s\n", p1.name);
+    printf("p2's name is:%s\n", p2.name);
     printf("p2's id is:%d\n", p2.id);
     printf("p2's address is:%s\n", p2.address);
     printf("p2's due bill is:%f\n", p2.amount);
