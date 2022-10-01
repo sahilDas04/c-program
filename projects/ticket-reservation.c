@@ -172,6 +172,8 @@ int main()
 		}
 		break;
 	}
+	printf("\t\tBooked on %s ", __DATE__);
+        printf("At %s\n\n", __TIME__);
 	printf("\t\t\t\t\tTHANK UUU!!!\n\n");
 	return 0;
 }
