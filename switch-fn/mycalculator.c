@@ -1,38 +1,44 @@
+// created by pratyush
+
 #include <stdio.h>
 int main()
 {
-    int a,b;
+    float a, b;
     char oparator;
     printf("measure urself>>>>>\n");
     printf("-----------------------\n");
-    
+
     printf("what did u want to do: ");
-    scanf("%c",&oparator);
+    scanf("%c", &oparator);
     printf("enter ur first number: ");
-    scanf("%d",&a);
+    scanf("%f", &a);
     printf("enter ur second number: ");
-    scanf("%d",&b);
+    scanf("%f", &b);
     printf("-----------------------\n");
     printf("displaying answer.....\n\n");
 
-   switch (oparator)
+    switch (oparator)
     {
     case '+':
-        printf("%d + %d = %d\n",a,b,a+b);
+        printf("%0.2f+ %0.2f= %0.2f\n", a, b, a + b);
         break;
-        case '-':
-        printf("%d - %d = %d\n",a,b,a-b);
+    case '-':
+        printf("%0.2f- %0.2f= %0.2f\n", a, b, a - b);
         break;
-        case '*':
-        printf("%d * %d = %d\n",a,b,a*b);
+    case '*':
+        printf("%0.2f * %0.2f = %0.2f\n", a, b, a * b);
         break;
-        case '/':
-        printf("%d / %d = %d\n",a,b,a/b);
+    case '/':
+        printf("%0.2f / %0.2f = %0.2f\n", a, b, a / b);
         break;
-    
-    default:("error");
+    case '%':
+        printf("%0.2f %% %0.2f = %0.2f%\n", a, b, a / b * 100.00);
+        break;
+    default:
+        printf("\t\t*****error****\n");
         break;
     }
-
+    printf("-----------------------\n");
     return 0;
 }
+
