@@ -1,34 +1,91 @@
 #include <stdio.h>
-void display(int arr[], int n)
+#include <stdlib.h>
+
+struct node
 {
-	// traversal
-	for (int i = 0; i < n; i++)
-	{
-		printf("%d\n", arr[i]);
-	}
+    int data;
+    struct node *next;
+};
+
+void linkListTraversal(struct node *ptr)
+{
+    while (ptr != NULL)
+    {
+        printf("element: %d\n", ptr->data);
+        ptr = ptr->next;
+    }
 }
-int indInsertion(int arr[], int size, int element, int capasity, int index)
+
+struct node *insertAtFirst(struct node *head, int data)
 {
-	if (size >= capasity)
-	{
-		return -1;
-	}
-	for (int i = size-1; i >= index; i--)
-	{
-		arr[i + 1] = arr[i];
-	}
-	arr[index] =element;
-	return 1;
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+
+    ptr->next = head;
+    ptr->data = data;
+    return ptr;
+}
+
+struct node *insertAtIndex(struct node *head, int data, int index)
+{
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    struct node *p = head;
+    int i = 0;
+    while (i != index - 1)
+    {
+        p = p->next;
+        i++;
+    }
+    ptr->data = data;
+    ptr->next = p->next;
+    p->next = ptr;
+    return head;
+}
+
+struct node *inserAtEnd(struct node *head, int data)
+{
+
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    struct node *p = head;
+    ptr->data = data;
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->next = ptr;
+    ptr->next = NULL;
+    return head;
 }
 
 int main()
 {
-	int arr[100] = {7, 8, 12, 27, 88};
-	int size = 5, element = 45, capasity = 100, index = 3;
-	display(arr, size);
-	indInsertion(arr, size, element, 100, index);
-	size+=1;
-	display(arr, size);
+    struct node *head;
+    struct node *second;
+    struct node *third;
+    struct node *forth;
 
-	return 0;
+    // allocated memory for the node in heap
+    head = (struct node *)malloc(sizeof(struct node));
+    second = (struct node *)malloc(sizeof(struct node));
+    third = (struct node *)malloc(sizeof(struct node));
+    forth = (struct node *)malloc(sizeof(struct node));
+
+    head->data = 7;
+    head->next = second;
+
+    second->data = 11;
+    second->next = third;
+
+    third->data = 27;
+    third->next = forth;
+
+    forth->data = 227;
+    forth->next = NULL;
+
+    // linkListTraversal(head);
+    // head = insertAtFirst(head, 56);
+    // head = insertAtIndex(head, 59, 1);
+    head = inserAtEnd(head, 20);
+    linkListTraversal(head);
+
+    return 0;
 }
