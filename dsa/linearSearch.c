@@ -14,7 +14,7 @@ int linearSearch(int arr[], int size, int element)
 
 int main()
 {
-    int arr[] = {1, 3, 5, 7, 10, 2, 4};
+    int arr[] = {1, 3, 5, 7, 10, 2, 4};// Bro use user input and do a problem to find a max consucutive no
     int size = sizeof(arr) / sizeof(int);
     int element = 3;
     int searchIndex = linearSearch(arr, size, element);
